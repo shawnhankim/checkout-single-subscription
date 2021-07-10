@@ -48,12 +48,14 @@ func handleConfig(w http.ResponseWriter, r *http.Request) {
 	}
 	writeJSON(w, struct {
 		PublishableKey string `json:"publishableKey"`
-		BasicPrice     string `json:"basicPrice"`
-		ProPrice       string `json:"proPrice"`
+		SilverPrice    string `json:"silverPrice"`
+		GoldPrice      string `json:"goldPrice"`
+		PlatinumPrice  string `json:"platinumPrice"`
 	}{
 		PublishableKey: os.Getenv("STRIPE_PUBLISHABLE_KEY"),
-		BasicPrice:     os.Getenv("BASIC_PRICE_ID"),
-		ProPrice:       os.Getenv("PRO_PRICE_ID"),
+		SilverPrice:    os.Getenv("SILVER_PRICE_ID"),
+		GoldPrice:      os.Getenv("GOLD_PRICE_ID"),
+		PlatinumPrice:  os.Getenv("PLATINUM_PRICE_ID"),
 	}, nil)
 }
 
@@ -64,6 +66,7 @@ func handleCreateCheckoutSession(w http.ResponseWriter, r *http.Request) {
 	}
 	r.ParseForm()
 	priceId := r.PostFormValue("priceId")
+
 	params := &stripe.CheckoutSessionParams{
 		SuccessURL: stripe.String(os.Getenv("DOMAIN") + "/success.html?session_id={CHECKOUT_SESSION_ID}"),
 		CancelURL:  stripe.String(os.Getenv("DOMAIN") + "/canceled.html"),
@@ -102,8 +105,8 @@ func handleCustomerPortal(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 		return
 	}
-  r.ParseForm()
-  sessionID := r.PostFormValue("sessionId")[0:]
+	r.ParseForm()
+	sessionID := r.PostFormValue("sessionId")[0:]
 
 	// For demonstration purposes, we're using the Checkout session to retrieve the customer ID.
 	// Typically this is stored alongside the authenticated user in your database.
@@ -123,7 +126,7 @@ func handleCustomerPortal(w http.ResponseWriter, r *http.Request) {
 	}
 	ps, _ := portalsession.New(params)
 
-  http.Redirect(w, r, ps.URL, http.StatusSeeOther)
+	http.Redirect(w, r, ps.URL, http.StatusSeeOther)
 }
 
 func handleWebhook(w http.ResponseWriter, r *http.Request) {

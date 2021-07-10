@@ -1,11 +1,13 @@
 /* Fetch prices and update the form */
 fetch("/config")
   .then(r => r.json())
-  .then(({basicPrice, proPrice}) => {
-    const basicPriceInput = document.querySelector('#basicPrice');
-    basicPriceInput.value = basicPrice;
-    const proPriceInput = document.querySelector('#proPrice');
-    proPriceInput.value = proPrice;
+  .then(({silverPrice, goldPrice, platinumPrice}) => {
+    const silverPriceInput = document.querySelector('#silverPrice');
+    silverPriceInput.value = silverPrice;
+    const goldPriceInput = document.querySelector('#goldPrice');
+    goldPriceInput.value = goldPrice;
+    const platinumPriceInput = document.querySelector('#platinumPrice');
+    platinumPriceInput.value = platinumPrice;
   })
 
 // If a fetch error occurs, log it to the console and show it in the UI.

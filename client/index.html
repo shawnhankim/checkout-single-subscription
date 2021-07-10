@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Stripe Checkout Sample</title>
-    <meta name="description" content="A demo of Stripe Payment Intents" />
+    <title>Stripe Checkout Sample for API Monetization</title>
+    <meta name="description" content="A demo of Stripe Payment Intents for API Monetization" />
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -25,30 +25,44 @@
         <div class="price-table-container">
           <section>
             <form action="/create-checkout-session" method="POST">
-              <input type="hidden" id="basicPrice" name="priceId">
+              <input type="hidden" id="silverPrice" name="priceId" value="price_1JBTQKDrV4EiNP0ggth1PNIw">
               <img
-                src="/img/starter.png"
+                src="./img/silver.png"
                 width="120"
                 height="120"
                 />
-              <div class="name">Starter</div>
-              <div class="price">$12</div>
+              <div class="name">Silver</div>
+              <div class="price">$100.00</div>
               <div class="duration">per month</div>
-              <button id="basic-plan-btn">Select</button>
+              <button id="silver-plan-btn">SELECT</button>
             </form>
           </section>
           <section>
             <form action="/create-checkout-session" method="POST">
-              <input type="hidden" id="proPrice" name="priceId">
+              <input type="hidden" id="goldPrice" name="priceId" value="price_1JBTQSDrV4EiNP0g9cEQyBE1">
               <img
-                src="/img/professional.png"
+                src="./img/gold.png"
                 width="120"
                 height="120"
                 />
-              <div class="name">Professional</div>
-              <div class="price">$18</div>
+              <div class="name">Gold</div>
+              <div class="price">$200.00</div>
               <div class="duration">per month</div>
-              <button id="pro-plan-btn">Select</button>
+              <button id="gold-plan-btn">SELECT</button>
+            </form>
+          </section>
+          <section>
+            <form action="/create-checkout-session" method="POST">
+              <input type="hidden" id="platinumPrice" name="priceId" value="price_1JBTQbDrV4EiNP0gy2JfkSqe">
+              <img
+                src="./img/gold.png"
+                width="120"
+                height="120"
+                />
+              <div class="name">Platinum</div>
+              <div class="price">$400.00</div>
+              <div class="duration">per month</div>
+              <button id="platinum-plan-btn">SELECT</button>
             </form>
           </section>
         </div>
