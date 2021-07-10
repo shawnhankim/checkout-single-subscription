@@ -1,3 +1,9 @@
+---
+noteId: "143dcaf0e0f711eb9f5b8d35e560eeaa"
+tags: []
+
+---
+
 # Checkout single subscription
 
 A [Sinatra](http://sinatrarb.com/) implementation.

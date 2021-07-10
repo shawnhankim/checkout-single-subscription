@@ -1,3 +1,9 @@
+---
+noteId: "143da3e0e0f711eb9f5b8d35e560eeaa"
+tags: []
+
+---
+
 # Using Checkout for subscriptions
 
 [Checkout](https://stripe.com/docs/payments/checkout) is a pre-built payment page that lets you accept cards and Apple Pay. [Billing](https://stripe.com/docs/billing) is a suite of APIs that lets you model complex subscription plans. You can combine the two products to get a subscription payment page up and running without the need of a server.
